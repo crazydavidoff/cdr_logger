@@ -17,6 +17,8 @@ sock.bind(('', 60010))
 sock.listen(1)
 conn, addr = sock.accept()
 
+mysqldbcursor = mysqldb.cursor()
+
 while True:
 
     try:
@@ -27,8 +29,6 @@ while True:
 
         list = [cdr[0], cdr[1], cdr[2], cdr[3], cdr[4], cdr[5], cdr[6], cdr[8], cdr[9], cdr[15], cdr[16], cdr[27], cdr[28], cdr[29], cdr[30], cdr[31] , cdr[33], cdr[34]]
         print("[INFO]: " + ' '.join(map(str, list)))
-
-        mysqldbcursor = mysqldb.cursor()
 
         sql_insert = "INSERT INTO cdr (CallStart,ConnectedTime,RingTime,Caller,Direction,CalledNumber,DialledNumber,IsInternal,CallID,HoldTime,ParkTime,ExternalTargetingCause,ExternalTargeterId,ExternalTargetedNumber,CallerServerIP,UniqueCallIDCallerExtension,UniqueCallIDCalledParty,SMDRRecordingTime) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
