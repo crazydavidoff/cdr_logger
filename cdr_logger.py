@@ -3,6 +3,7 @@
 
 import socket
 import mysql.connector
+import sys
 
 mysqldb = mysql.connector.connect(
         host="localhost",
