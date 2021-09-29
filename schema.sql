@@ -1,5 +1,6 @@
-create database AvayaCdr character set UTF8 collate utf8_general_ci
-
+create database if not exists `AvayaCdr`;
+GRANT ALL ON `AvayaCdr`.* TO 'cdruser'@'%';
+USE AvayaCdr;
 CREATE TABLE `cdr` (
 `id` INT(10) NOT NULL AUTO_INCREMENT,
 `CallStart` DATETIME NULL DEFAULT NULL,
@@ -21,4 +22,4 @@ CREATE TABLE `cdr` (
 `UniqueCallIDCalledParty` VARCHAR(50) NULL DEFAULT '',
 `SMDRRecordingTime` DATETIME DEFAULT NULL,
 PRIMARY KEY (`id`)
-)
+);

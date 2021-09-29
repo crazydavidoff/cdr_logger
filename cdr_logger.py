@@ -6,9 +6,9 @@ import mysql.connector
 import sys
 
 mysqldb = mysql.connector.connect(
-        host="localhost",
-        user="user",
-        passwd="password",
+        host="database",
+        user="cdruser",
+        passwd="somepassword",
         db="AvayaCdr"
 )
 
